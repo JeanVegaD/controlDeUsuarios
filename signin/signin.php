@@ -100,7 +100,7 @@
                   		echo $mensajeSalidaRegistro;
                     ?> 
                     <button type="submit" class="buttton_login" name="submit_registro">Registrarse</button>
-                     <a href="../index.php" target="_blank">
+                     <a href="../index.php">
                                 <button type="button" class="button_text" >Iniciar Sesion</button>
                             </a>
                 </form>

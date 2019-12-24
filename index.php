@@ -65,7 +65,7 @@
                             </a>
                         </div>
                         <div class="col-lg-6">
-                            <a href="../administrar_contraseñas/pass.php" target="_blank">
+                            <a href="../administrar_contraseñas/pass.php" >
                                 <button type="button" class="button_text">¿Olvidó su contraseña?</button>
                             </a> 
                         </div>

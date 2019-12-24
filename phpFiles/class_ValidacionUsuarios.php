@@ -154,6 +154,50 @@ class ValidacionUsuarios{
         
     }
 
+
+    function validarCambioDeContraseña($username,$passActual,$newPass,$newPass2,$conexionBD){
+        if(!empty($username) && !empty($passActual) && !empty($newPass) && !empty($newPass2)){
+            //valida la existencia del usuario
+            $ObjUsuarios =  new DAOUsuarios($conexionBD);
+            if($ObjUsuarios->autenticarUsuario($username,$passActual)){
+                //valida que la estructuras de las contraseñas
+                if($this->validarContraseña($newPass) && $this->validarContraseña($newPass2)){
+                    if($newPass == $newPass2 ){
+                        if($ObjUsuarios->modificarContraseña($username,$newPass)){
+                            $retornar= 'exitoso';
+                            return $retornar;
+                        }
+                        else{
+                            $mensajeError="Error al cambiar la contraseña";
+                            $retornar= '<div class="alert alert-danger">'.$mensajeError.'</div>';
+                            return $retornar;
+                        }
+                    }else{
+                        $mensajeError="Las contraseñas no coinciden";
+                        $retornar= '<div class="alert alert-danger">'.$mensajeError.'</div>';
+                        return $retornar;
+                    }
+                }
+                else{
+                    $mensajeError="La contraseña debe contener mínimo 8 de longitud y una combinación de
+                    letras mayúsculas, minúsculas y números";
+                    $retornar= '<div class="alert alert-danger">'.$mensajeError.'</div>';
+                    return $retornar;
+                }
+            }
+            else{
+                $mensajeError="Nombre de usuario o contraseña incorrectos";
+                $retornar= '<div class="alert alert-danger">'.$mensajeError.'</div>';
+                return $retornar;
+            }
+        }
+        else{
+            $mensajeError="Complete todos los datos";
+            $retornar= '<div class="alert alert-danger">'.$mensajeError.'</div>';
+            return $retornar;
+        }
+    }
+
 }
 
 

@@ -138,6 +138,26 @@ class ControllerUsuarios{
         }     
     }
 
+    /*controla las validaciones para el cambio de contraseña e implementa un 
+    metodo de usuarios para cambiar la contraseña si todo es correcto*/
+    function btn_cambiarPassword($username,$passActual,$newPass,$newPass2){
+        if($this->conectarBaseDatos()){
+            $validar =  new ValidacionUsuarios();
+            $resultado=$validar->validarCambioDeContraseña($username,$passActual,$newPass,$newPass2,$this->mysqli);
+            if($resultado=="exitoso"){
+                return $resultado;
+            }
+            else{
+                return $resultado;
+            }
+        }
+        else{
+            $mensajeError="Erro al conectar con la base de datos";
+            $resultado= '<div class="alert alert-danger">'.$mensajeError.'</div>';
+            return $resultado;
+        }   
+    }
+
 
 }
 
