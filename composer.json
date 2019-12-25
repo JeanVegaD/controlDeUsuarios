@@ -2,6 +2,7 @@
     "require": {
         "heroku/heroku-buildpack-php": "^166.0",
         "phpmailer/phpmailer": "^6.1",
-        "joshcam/mysqli-database-class": "^2.9"
+        "joshcam/mysqli-database-class": "^2.9",
+        "twbs/bootstrap": "^4.4"
     }
 }
