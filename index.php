@@ -29,12 +29,17 @@
                 $controlador =  new ControllerUsuarios();
                 $resultado=$controlador->btn_ingresar_action($_POST['user_input'],$_POST['pass_input']);
                 if($resultado=="exitoso"){
-                     $username="";
-                     $password="";
+                    $username="";
+                    $password="";
+                    session_start();
+                    $_SESSION['user'] = $_POST['user_input'];
+                    header("Location:mainPage/main.php");
+                    
                     
                 }
                 else{
                     $username=$_POST['user_input'];
+                    
                     $mensajeSalida=$resultado;
                 }
             } 
@@ -42,7 +47,7 @@
     <body>
         <div class="container-fluid">
             <div class="row">
-                <form class="form_style" id="id_form_login" method="post">
+                <form class="form_style" id="id_form_login" method="post" >
                     <h1 class="titulo">Inicia sesión en tu cuenta</h1>
                     
                     <div class="form-group">
@@ -60,7 +65,7 @@
                     <button type="submit" value="click" name="submit_login" class="buttton_login">Ingresar</button>
                     <div class="row">
                         <div class="col-lg-6">
-                            <a href="../signin/signin.php" target="_blank">
+                            <a href="../signin/signin.php">
                                 <button type="button" class="button_text" >crear una cuenta</button>
                             </a>
                         </div>
