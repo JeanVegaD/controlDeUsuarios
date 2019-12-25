@@ -8,10 +8,10 @@ include 'class_ValidacionUsuarios.php';
 class ControllerUsuarios{
 
     //variables para iniciarlizar la base de datos
-    private  $servername = "localhost";
-    private  $username = "php_adminsitrador";
-    private  $password = "Cal2016";
-    private  $bd = "electivaweb";
+    private  $servername = "us-cdbr-iron-east-05.cleardb.net";
+    private  $username = "b47ed9f569b789";
+    private  $password = "0d70003e";
+    private  $bd = "heroku_3bc966ac44208f6";
     private  $mysqli;
 
 
