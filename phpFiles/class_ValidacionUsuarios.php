@@ -1,6 +1,5 @@
 <?php
 
-//include 'class_DAOUsuarios.php';
 
 class ValidacionUsuarios{
 	//constructor 
