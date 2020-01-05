@@ -175,7 +175,6 @@ class DAOUsuarios{
             $mail->send();
             return true;
         } catch (Exception $e) {
-            echo $e;
             return false;
         }
             }
