@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php include ('phpFiles/class_ControllerUsuarios.php'); ?>
 <html>
     <head>
@@ -80,3 +79,5 @@
         </div>
     </body>
 </html>
+
+?>

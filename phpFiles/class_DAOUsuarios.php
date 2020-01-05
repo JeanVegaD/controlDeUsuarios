@@ -146,9 +146,7 @@ class DAOUsuarios{
     function cambairContraseñaByCorreo($username,$correo){
         $contraseñaNueva=$this->generarContraseñaRandom();
         $this->modificarContraseña($username,$contraseñaNueva);
-        $this->enviarCorreo($contraseñaNueva,$correo,$username);
-        return true; 
-
+        return $this->enviarCorreo($contraseñaNueva,$correo,$username); 
     }
 
 
@@ -177,6 +175,7 @@ class DAOUsuarios{
             $mail->send();
             return true;
         } catch (Exception $e) {
+            echo $e;
             return false;
         }
             }
