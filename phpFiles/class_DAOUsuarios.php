@@ -155,18 +155,20 @@ class DAOUsuarios{
 
         try {
             //Server settings
-            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+            //$mail->SMTPDebug = 2;//SMTP::DEBUG_SERVER;                      // Enable verbose debug output
             $mail->isSMTP();                                            // Send using SMTP
             $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
             $mail->Username   = 'sistemamatriculatec@gmail.com';                     // SMTP username
             $mail->Password   = 'jeanvegadiaz';                               // SMTP password
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-            $mail->Port       = 587;                                    // TCP port to connect to
+            $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+            $mail->Port       = 465;                                    // TCP port to connect to
+
+            
 
             //Recipients
             $mail->setFrom('sistemamatriculatec@gmail.com', 'Control de usuarios');
-            $mail->addAddress($correo,$username );   
+            $mail->addAddress($correo,$username);   
         
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
@@ -175,6 +177,7 @@ class DAOUsuarios{
             $mail->send();
             return true;
         } catch (Exception $e) {
+            echo $e;
             return false;
         }
             }
